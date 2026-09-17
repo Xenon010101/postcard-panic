@@ -4,8 +4,8 @@
 
 - [x] Original GTA VI-inspired experience implemented.
 - [x] React Image Editor is central; user edits a visual that affects the experience.
-- [ ] Public GitHub repository linked.
-- [ ] Public deployed application linked.
+- [x] Public GitHub repository: https://github.com/Xenon010101/postcard-panic
+- [x] Public deployed application: https://postcard-panic-anmol.anmolpatel2112.chatgpt.site
 - [ ] Demonstration recorded.
 - [ ] Submission sent by the user at https://lnkd.in/eEE_bKHc.
 - [ ] User shares the build with #BuiltWithImageEditor.
@@ -30,8 +30,8 @@ I built POSTCARD PANIC for the Build with React Image Editor Challenge: a GTA-in
 
 Draw a route with Unlayer React Image Editor, watch the postcard unfold into a miniature coastal city, and see whether your crew escapes with an oversized flamingo. The exported PNG is also a replayable plan someone else can remix.
 
-Live: [add verified URL]
-Source: [add public GitHub URL]
+Live: https://postcard-panic-anmol.anmolpatel2112.chatgpt.site
+Source: https://github.com/Xenon010101/postcard-panic
 
 #BuiltWithImageEditor #React #BuildInPublic
 

@@ -4,6 +4,9 @@
 
 Built with React, TypeScript, Vite, Unlayer React Image Editor and Three.js. Original fan-inspired work; not affiliated with Rockstar Games.
 
+**Play:** https://postcard-panic-anmol.anmolpatel2112.chatgpt.site  
+**Source:** https://github.com/Xenon010101/postcard-panic
+
 ## Play locally
 
 Requires Node.js 22.12+ (Node 24 recommended).

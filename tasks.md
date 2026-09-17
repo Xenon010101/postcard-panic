@@ -16,8 +16,8 @@
 - [x] Production TypeScript/Vite build passes; lazy Three.js chunk has a non-blocking size warning.
 - [x] Narrow layout measured at 392px with no horizontal overflow; editor keyboard cancellation checked separately during release QA.
 - [ ] Verify 90-second first-use target with a new human user.
-- [ ] Publish source to public GitHub repository.
-- [ ] Deploy and verify public access.
+- [x] Publish source to public GitHub repository: https://github.com/Xenon010101/postcard-panic
+- [x] Deploy and verify anonymous public access: https://postcard-panic-anmol.anmolpatel2112.chatgpt.site
 - [x] Prepare README, attribution, demonstration script and announcement draft.
 - [ ] User records demonstration and sends submission/social post.
 
