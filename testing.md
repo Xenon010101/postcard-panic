@@ -4,6 +4,7 @@
 
 - Route fixtures: empty map; valid short and scenic paths; variable stroke widths; modest offsets; missing edge; disconnected island; branch; loop; wrong color; cyan annotations outside road corridors.
 - Simulation: stable identical output for identical routes; bridge timing; patrol encounter; successful route; slow route; event ordering; pause-independent time sampling.
+- Briefing: deterministic codename and bounded risk score; exactly three advisories; bridge, patrol and boat states; safe, caught, bridge-delayed and late routes; suggested revisions independently reproduce a successful outcome.
 - PNG: exported postcard decodes and reproduces route/outcome; wrong dimensions, non-PNG, oversize file, and damaged registration marks fail clearly.
 - App: guarded storage corruption; editor save/cancel/error; replay cleanup and loading behavior where practical.
 - TypeScript check and production build.

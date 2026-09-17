@@ -1616,3 +1616,237 @@ footer > span {
   width: 100%;
 }
 .dispatch{position:relative;left:auto;bottom:auto;max-width:none;width:100%;margin-top:8px;min-height:106px}.postcard-area{scroll-margin-top:20px}@media(max-width:760px){.dispatch{left:auto;bottom:auto;max-width:none;min-height:114px}}
+
+/* The escape map is presented as a recovered piece of evidence, rather than a
+   passive level-select screen. Its live readout only uses the deterministic
+   route simulation. */
+.case-map {
+  isolation: isolate;
+  overflow: hidden;
+}
+.case-map::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, #0c2f3325 3px 4px),
+    linear-gradient(90deg, #0b4a5520, transparent 16%, transparent 84%, #0b4a5520);
+  mix-blend-mode: multiply;
+}
+.case-map::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  width: 21%;
+  pointer-events: none;
+  opacity: 0.28;
+  background: linear-gradient(90deg, transparent, #a7f7ff, transparent);
+  mix-blend-mode: screen;
+  animation: evidence-scan 6s ease-in-out infinite;
+}
+.map-case-stamp {
+  position: absolute;
+  z-index: 4;
+  right: 22px;
+  bottom: 20px;
+  width: 112px;
+  padding: 9px 7px 8px;
+  display: grid;
+  text-align: center;
+  gap: 1px;
+  color: #f6ffea;
+  border: 1px solid #f6ffea;
+  outline: 2px solid #f6ffea99;
+  outline-offset: 3px;
+  background: #143d3bd9;
+  transform: rotate(-7deg);
+  box-shadow: 0 5px 13px #142f327a;
+}
+.map-case-stamp span,
+.map-case-stamp small {
+  font: 8px var(--mono);
+  letter-spacing: 0.9px;
+}
+.map-case-stamp strong {
+  font: 800 37px/0.92 var(--display);
+  color: #00d8ff;
+}
+.route-intel {
+  position: relative;
+  overflow: hidden;
+  margin: 22px 0 19px;
+  padding: 15px;
+  color: #eef5e5;
+  background: #123f3d;
+  border-left: 4px solid #00d8ff;
+  box-shadow: 0 10px 18px -18px #102e2b;
+}
+.route-intel::after {
+  content: "EVIDENCE / PALMETTO BAY / 2026";
+  position: absolute;
+  right: -35px;
+  bottom: 8px;
+  color: #b9f6f424;
+  font: 700 14px var(--display);
+  letter-spacing: 1.5px;
+  transform: rotate(-8deg);
+}
+.intel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #aaf9ff;
+  font: 9px var(--mono);
+  letter-spacing: 0.8px;
+}
+.intel-heading b {
+  color: #ffcc7b;
+  font-weight: 500;
+}
+.route-intel h3 {
+  margin: 8px 0 4px;
+  font: 700 28px/0.92 var(--display);
+  letter-spacing: 0.3px;
+}
+.route-intel p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 14px;
+  color: #d4e6d3;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.intel-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #dff9e736;
+}
+.intel-grid > div {
+  min-width: 0;
+  padding: 9px 7px 0 0;
+}
+.intel-grid > div + div {
+  padding-left: 8px;
+  border-left: 1px solid #dff9e736;
+}
+.intel-grid span {
+  display: block;
+  color: #8bb5ad;
+  font: 8px var(--mono);
+  letter-spacing: 0.5px;
+}
+.intel-grid strong {
+  display: block;
+  margin-top: 4px;
+  color: #f8f6dc;
+  font: 600 12px/1.2 var(--display);
+  letter-spacing: 0.2px;
+}
+@keyframes evidence-scan {
+  0%, 12% { left: -24%; }
+  70%, 100% { left: 104%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-map::before { animation: none; left: 42%; }
+}
+@media (max-width: 760px) {
+  .route-intel { margin-top: 16px; }
+  .route-intel h3 { font-size: 26px; }
+  .map-case-stamp { right: 17px; bottom: 16px; transform: rotate(-5deg) scale(0.86); transform-origin: bottom right; }
+}
+.intel-advisories {
+  margin: 0 0 13px;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 6px;
+}
+.intel-advisories li {
+  position: relative;
+  padding: 7px 9px 7px 20px;
+  background: #ffffff0f;
+  border: 1px solid #dff9e72e;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #d4e6d3;
+}
+.intel-advisories li::before {
+  content: "▮";
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  color: #00d8ff;
+  font-size: 9px;
+}
+.intel-grid small {
+  display: block;
+  margin-top: 4px;
+  color: #8bb5ad;
+  font: 8px var(--mono);
+  letter-spacing: 0.2px;
+  line-height: 1.35;
+}
+.intel-suggestion {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px dashed #ffcc7b77;
+  background: #ffffff0a;
+}
+.intel-suggestion > span {
+  display: block;
+  color: #ffcc7b;
+  font: 8px var(--mono);
+  letter-spacing: 0.7px;
+}
+.intel-suggestion strong {
+  display: block;
+  margin: 6px 0 5px;
+  font: 600 17px/1.05 var(--display);
+  letter-spacing: 0.3px;
+  color: #f8f6dc;
+}
+.intel-suggestion p {
+  margin: 0 0 5px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #cfe2ce;
+}
+.intel-suggestion-meta {
+  margin: 0;
+}
+.intel-suggestion-meta b {
+  color: #aaf9ff;
+  font-weight: 500;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.4px;
+}
+@media (max-width: 760px) {
+  .intel-advisories li {
+    font-size: 12px;
+  }
+  .intel-grid {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .intel-grid > div {
+    padding-right: 0;
+  }
+  .intel-grid > div + div {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid #dff9e736;
+    padding-top: 8px;
+  }
+}

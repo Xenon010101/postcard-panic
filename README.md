@@ -26,6 +26,7 @@ npm run preview
 1. Open **Edit your postcard**. Choose Draw, set color to **#00D8FF**, and use an 8–12px brush.
 2. Trace one continuous route along streets from pickup A (southwest) to boat B (northeast). Avoid branches. Text and shapes can decorate areas away from roads and corner marks.
 3. Save and check the route, then run the getaway. The bridge, patrol and slower promenade affect your timing.
+   The intelligence card shows the deterministic forecast before you commit: risk, route codename, timing advisories and a suggested revision after a failed plan.
 4. Revise after failure. **Fresh map** inside the editor clears the flattened image for a new route; Cancel keeps the previously saved postcard.
 5. Save PNG and import that original file to reproduce the route and outcome. Screenshots, resized images and ordinary pictures are rejected.
 

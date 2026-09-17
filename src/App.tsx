@@ -25,6 +25,7 @@ import {
   validateFormat,
 } from "./game/postcard";
 import { simulate, clockLabel, type Simulation } from "./game/simulation";
+import { brief } from "./game/briefing";
 import { loadSession, saveSession } from "./game/storage";
 import ReplayBoard from "./components/ReplayBoard";
 import { useGameTools } from "./game/webmcp";
@@ -52,6 +53,10 @@ export default function App() {
     () => (analysis.route ? simulate(analysis.route) : null),
     [analysis.route],
   );
+  const routeIntel = useMemo(() => {
+    if (!analysis.route || !predicted) return null;
+    return brief(analysis.route, predicted);
+  }, [analysis.route, predicted]);
   const file = useRef<HTMLInputElement>(null);
   useEffect(() => {
     let live = true;
@@ -301,12 +306,19 @@ export default function App() {
                     </div>
                   </>
                 ) : (
-                  <div className="map-image">
+                  <div className="map-image case-map">
                     {postcard && (
                       <img
                         src={postcard}
                         alt="Editable Palmetto Bay street map. Pickup A is southwest; escape boat B is northeast."
                       />
+                    )}
+                    {routeIntel && (
+                      <div className="map-case-stamp" aria-hidden="true">
+                        <span>POSTMARKED</span>
+                        <strong>{100 - routeIntel.risk}%</strong>
+                        <small>GETAWAY VIABILITY</small>
+                      </div>
                     )}
                     {analysis.problemNodes.length > 0 && (
                       <svg
@@ -401,6 +413,53 @@ export default function App() {
                 <strong>48 seconds. Zero good excuses.</strong>
               </div>
             </div>
+            {routeIntel && (
+              <section className="route-intel" aria-label="Postcard intelligence">
+                <div className="intel-heading">
+                  <span>POSTCARD INTELLIGENCE</span>
+                  <b>
+                    {routeIntel.risk}% RISK · {100 - routeIntel.risk}% VIABLE
+                  </b>
+                </div>
+                <h3>{routeIntel.codename}</h3>
+                <p>
+                  {routeIntel.verdict}. {routeIntel.eta}. The ink is now the
+                  evidence.
+                </p>
+                <ul className="intel-advisories">
+                  {routeIntel.advisories.map((advisory) => (
+                    <li key={advisory}>{advisory}</li>
+                  ))}
+                </ul>
+                <div className="intel-grid">
+                  <div>
+                    <span>BRIDGE</span>
+                    <strong>{routeIntel.bridge.state}</strong>
+                    <small>{routeIntel.bridge.detail}</small>
+                  </div>
+                  <div>
+                    <span>PATROL</span>
+                    <strong>{routeIntel.patrol.state}</strong>
+                    <small>{routeIntel.patrol.detail}</small>
+                  </div>
+                  <div>
+                    <span>BOAT</span>
+                    <strong>{routeIntel.boat.state}</strong>
+                    <small>{routeIntel.boat.detail}</small>
+                  </div>
+                </div>
+                {routeIntel.suggestion && (
+                  <div className="intel-suggestion" role="note">
+                    <span>SUGGESTED REVISION</span>
+                    <strong>{routeIntel.suggestion.label}</strong>
+                    <p>{routeIntel.suggestion.blurb}</p>
+                    <p className="intel-suggestion-meta">
+                      <b>{routeIntel.suggestion.nodes.length - 1} connected streets</b>
+                    </p>
+                  </div>
+                )}
+              </section>
+            )}
             {finished && run && (
               <div className={`result-card ${run.sim.outcome}`} role="status">
                 <span>

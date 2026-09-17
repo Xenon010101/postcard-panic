@@ -25,6 +25,10 @@ Sample along fixed road segments with tolerance for stroke width, antialiasing, 
 
 Use fixed edge lengths and speed, authored patrol timing, a drawbridge closed from seconds 14 to 24, and a slower promenade. Time and outcome are pure functions of ordered route node IDs. Animation time only selects a frame from that timeline. Pause and tab visibility do not change results. Return event records explaining failure and success.
 
+The ready-state “Postcard Intelligence” display is a presentation-only projection of this same simulation: route title, viability score, bridge state, patrol state, projected outcome and ETA are recomputed from route events and outcome. It never changes a verdict or supplies hidden gameplay data.
+
+`src/game/briefing.ts` is the pure read-model for that display. It derives a stable codename, bounded risk score, three route advisories, operational statuses, and—only after a failed simulation—one pre-authored valid revision. The recommendation is verified by the same simulator before it is shown; it is a drawing target, not hidden route metadata.
+
 ## Portable postcard
 
 One versioned, fixed-size PNG map for one district. Export the committed edited raster. Import checks PNG signature, file-size limits, decoded dimensions, and protected map registration marks before route recognition. No embedded executable code or hidden route metadata. Imported pixels are authoritative. The exact original PNG must round-trip; reject resized or compressed screenshots clearly.

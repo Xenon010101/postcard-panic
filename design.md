@@ -23,7 +23,7 @@ The postcard has a title band, route diagram, legend, and version markings. Star
 - Briefing: postcard visible, mission note and Edit postcard action.
 - Editing: real Unlayer editor in a full workspace overlay; explicit cyan color, instruction to trace existing streets, Save validates, Cancel preserves last committed image.
 - Invalid: explain disconnected or branching routes, highlight affected streets; offer editing and reset.
-- Ready: display recognized path and duration estimate, Run getaway action.
+- Ready: treat the recognized postcard as recovered evidence. A live postal-intelligence card names the route, grades viability, and exposes bridge, patrol, and boat timing before the player runs it. The map gains a non-interactive scanning treatment and an evidence stamp derived only from the deterministic simulation.
 - Reveal/replay: tilt from overhead to isometric, raise buildings, follow truck; elapsed time and current event remain readable. Pause/replay controls available.
 - Result: escaped/busted/too late, precise reason and location, retry and export actions.
 
