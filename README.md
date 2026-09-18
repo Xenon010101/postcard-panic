@@ -1,22 +1,43 @@
 # POSTCARD PANIC
 
-**Wish you weren’t here.** Draw an escape route on a tourist postcard, watch it become a miniature coastal getaway, and share the PNG so someone else can replay your plan.
+> **A getaway plan you can mail.** Draw a cyan escape route on a tourist postcard, then watch your exact ink become a miniature coastal chase.
 
-Built with React, TypeScript, Vite, Unlayer React Image Editor and Three.js. Original fan-inspired work; not affiliated with Rockstar Games.
+[Play the live game](https://postcard-panic-anmol.anmolpatel2112.chatgpt.site) · [Browse the source](https://github.com/Xenon010101/postcard-panic)
 
-**Play:** https://postcard-panic-anmol.anmolpatel2112.chatgpt.site  
-**Source:** https://github.com/Xenon010101/postcard-panic
+POSTCARD PANIC is an original, GTA VI-inspired browser experience built for the **Build with React Image Editor Challenge**. The crew has an oversized flamingo, a pickup truck, and 48 seconds to reach a boat. The postcard is the plan: its saved pixels determine where the truck drives, whether the patrol catches it, and whether the boat is still waiting.
 
-## Play locally
+![Postcard Panic tourist postcard](public/assets/palmetto-postcard.png)
 
-Requires Node.js 22.12+ (Node 24 recommended).
+## Why the editor matters
+
+This is not a decorative image-editing step. The project uses the real [Unlayer React Image Editor](https://github.com/unlayer/react-image-editor) as the route-planning surface:
+
+1. Draw a single cyan (`#00D8FF`) line through the street map from pickup **A** to boat **B**.
+2. Save the edited image from the editor.
+3. Sample its actual pixels against the district street graph.
+4. Turn the recognized route into a deterministic escape simulation and city replay.
+
+Every exported postcard is a playable plan. Importing the same original PNG reproduces the same route and outcome.
+
+## What’s inside
+
+- A real React Image Editor workflow with save, cancel, reset, validation, and clear drawing guidance.
+- Tolerant cyan-pixel route recognition that explains gaps, branches, loops, and missing endpoints.
+- A deterministic chase: a timed drawbridge, marina patrol window, slower boardwalk, and 48-second boat departure.
+- A Three.js miniature Palmetto Bay reveal with a top-down fallback for unavailable WebGL.
+- **Postcard Intelligence**: route codename, risk score, timing advisories, and simulator-verified recovery suggestions.
+- Account-free local progress, muted-by-default sound, reduced-motion support, PNG import/export, and responsive controls.
+
+## Run locally
+
+Requires Node.js 22.12 or newer (Node 24 recommended).
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open the localhost address printed by Vite. No API key or account is needed. The Unlayer editor loads from its hosted service and needs internet access.
+Open the local address shown by Vite. No account or API key is required. The hosted Unlayer editor needs an internet connection while it loads.
 
 ```sh
 npm test
@@ -24,21 +45,32 @@ npm run build
 npm run preview
 ```
 
-## How to play
+## Play in under a minute
 
-1. Open **Edit your postcard**. Choose Draw, set color to **#00D8FF**, and use an 8–12px brush.
-2. Trace one continuous route along streets from pickup A (southwest) to boat B (northeast). Avoid branches. Text and shapes can decorate areas away from roads and corner marks.
-3. Save and check the route, then run the getaway. The bridge, patrol and slower promenade affect your timing.
-   The intelligence card shows the deterministic forecast before you commit: risk, route codename, timing advisories and a suggested revision after a failed plan.
-4. Revise after failure. **Fresh map** inside the editor clears the flattened image for a new route; Cancel keeps the previously saved postcard.
-5. Save PNG and import that original file to reproduce the route and outcome. Screenshots, resized images and ordinary pictures are rejected.
+1. Select **Draw your escape**.
+2. In the editor, choose **Draw**, set the pen to `#00D8FF`, and use an 8–12px brush.
+3. Trace one clear route along the streets from pickup A in the south-west to boat B in the north-east.
+4. Save and check the postcard. Read the intelligence forecast before running it.
+5. Escape, get caught, or miss the boat—then revise the ink and run it again.
+6. Save the PNG to share the exact plan. Import that original PNG to replay it later.
 
-The labeled example route demonstrates play without pretending to be an editor interaction. Sound starts muted. The map replay works without WebGL. Progress is stored locally when browser storage is available.
+Use **Fresh map** inside the editor when you want to clear old ink. A saved postcard is a flattened PNG, so it deliberately does not retain editable drawing layers. Resized images, screenshots, and unrelated PNGs are rejected to preserve the map contract.
 
-## Implementation
+## Verification
 
-One district, one mission, several valid routes, deterministic replay, PNG sharing, original artwork, accessible replay controls and optional WebMCP actions are implemented. See [tasks.md](tasks.md) for release status and honest verification limits. The first-use 90-second target still needs a new human participant.
+`npm test` covers 44 checks across route recognition, deterministic simulation, PNG round-tripping, local persistence, and route-intelligence scenarios. `npm run build` produces the static production build. Browser checks have covered the real editor, saved route recognition, replay controls, top-down fallback, successful and patrol-failure routes, PNG import, and public deployment.
 
-## Project guide
+The first-use 90-second target remains an honest open usability test for a new human player. See [tasks.md](tasks.md) for the full completion record and known limits.
 
-[Instructions](instruction.md) · [Design](design.md) · [Architecture](architecture.md) · [Testing](testing.md) · [Submission draft](submission.md) · [Asset credits](assets.md)
+## Project map
+
+- [Product instructions](instruction.md)
+- [Visual design](design.md)
+- [Architecture](architecture.md)
+- [Testing plan](testing.md)
+- [Asset and package attribution](assets.md)
+- [Contest checklist and post draft](submission.md)
+
+## Credits
+
+Built with React, TypeScript, Vite, Three.js, and Unlayer React Image Editor. The postcard illustration, map, city geometry, and synthesized sounds were created for this project. POSTCARD PANIC is an original unofficial fan experience; it is not affiliated with or endorsed by Rockstar Games.
